@@ -3,7 +3,7 @@ from .models import Job
 
 
 class JobAdmin(admin.ModelAdmin):
-    list_display = ('summary',)
+    list_display = ('title', 'summary')
 
 
 admin.site.register(Job, JobAdmin)

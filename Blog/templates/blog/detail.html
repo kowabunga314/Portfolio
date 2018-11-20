@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Dylan's Portfolio</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{% static 'Frost_Resume.pdf' %}">Resume </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'allblogs' %}">Blog </a>
+                    <a class="nav-link active" href="{% url 'allblogs' %}">Blog </a>
                 </li>
             </ul>
         </div>
@@ -47,38 +47,15 @@
 
 <main role="main">
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Hi, I'm Dylan</h1>
-            <hr width="23.6%"/>
-            <img src="{% static 'me.jpeg' %}">
-            <hr width="23.6%"/>
-            <p class="lead text-muted">I'm a Python engineer who specializes in Django and Django Rest Framework.</p>
-            <p>
-                <a href="mailto:dougfrost314@gmail.com" class="btn btn-primary my-2">Email Me</a>
-            </p>
+    <div class="container pt-5">
+        <h3 class="text-center">{{ blog.title }}</h3>
+        <p class="text-center">{{ blog.pub_date_pretty }}</p>
+        <hr/>
+        <div >
+            <img src="{{ blog.image.url }}" class="img-fluid float-left pr-3" height="400" width="400" />
+            <p style="white-space: pre-wrap">{{ blog.body }}</p>
         </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ job.image.url }}"/>
-                        <div class="card-body">
-                            <h5 class="">{{ job.title }}</h5>
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
-        </div>
+        <hr/>
     </div>
 
 </main>
