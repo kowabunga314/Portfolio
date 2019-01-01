@@ -14,6 +14,6 @@ def home(request):
 def pdf_view(request):
     with open('static/Frost_Resume.pdf', 'rb') as pdf:
         response = HttpResponse(pdf.read(), content_type='application/pdf')
-        response['Content-Disposition'] = 'inline;filename=some_file.pdf'
+        response['Content-Disposition'] = 'inline;filename=Dylan_Frost_Resume.pdf'
         return response
 
